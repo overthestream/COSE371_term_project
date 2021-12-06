@@ -9,11 +9,10 @@ const registerUser = async (req, res) => {
     };
 
     await queryGenerator(query.str, query.val);
-    res.status(200);
+    res.sendStatus(200);
   } catch (err) {
     console.log(err);
-    res.send(err);
-    res.status(500);
+    res.sendStatus(500);
   }
 };
 
@@ -46,7 +45,7 @@ const findUsers = async (req, res) => {
     };
     const queryResult = await queryGenerator(query.str, query.val);
     res.json(queryResult);
-    res.send(200);
+    res.status(200);
   } catch (err) {
     console.log(err);
     res.send(err);

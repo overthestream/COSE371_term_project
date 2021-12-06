@@ -1,0 +1,61 @@
+{
+  "name": "FE",
+  "version": "1.0.0",
+  "description": "Front-end for COSE371 project",
+  "main": "index.js",
+  "repository": "https://github.com/overthestream/COSE371_term_project",
+  "author": "overthestream <njhnjh02@naver.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "react-scripts start"
+  },
+  "babel": {
+    "presets": [
+      [
+        "react-app",
+        {
+          "absoluteRuntime": false
+        }
+      ]
+    ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.14.8",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/styled-components": "^5.1.7",
+    "@typescript-eslint/eslint-plugin": "^4.12.0",
+    "@typescript-eslint/parser": "^4.12.0",
+    "auto": "^10.30.0",
+    "babel-preset-react-app": "^10.0.0",
+    "eslint": "^7.17.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.2.1",
+    "react-scripts": "^4.0.3",
+    "tsconfig-paths-webpack-plugin": "^3.5.1",
+    "typescript": "^4.1.3"
+  },
+  "dependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.2.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

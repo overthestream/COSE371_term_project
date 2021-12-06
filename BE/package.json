@@ -1,0 +1,22 @@
+{
+  "name": "COSE371_term_project",
+  "version": "1.0.0",
+  "description": "212R COSE371 Databases Term Project",
+  "main": "index.js",
+  "repository": "https://github.com/overthestream/COSE371_term_project",
+  "author": "overthestream <njhnjh02@naver.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.1.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.4.1"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "pg": "^8.7.1"
+  }
+}

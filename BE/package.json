@@ -6,6 +6,9 @@
   "repository": "https://github.com/overthestream/COSE371_term_project",
   "author": "overthestream <njhnjh02@naver.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "node src/index.js"
+  },
   "devDependencies": {
     "eslint": "^8.1.0",
     "eslint-config-airbnb-base": "^14.2.1",

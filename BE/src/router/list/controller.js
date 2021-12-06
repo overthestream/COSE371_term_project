@@ -4,7 +4,7 @@ const getList = async (req, res) => {
   try {
     const { id } = req.params;
     const query = {
-      str: `SELECT list_id FROM user_table natural join own_list WHERE user_id = $1`,
+      str: `SELECT list_id, list_name FROM user_table natural join own_list natural join list WHERE user_id = $1`,
       val: [id],
     };
     const queryResult = await queryGenerator(query.str, query.val);

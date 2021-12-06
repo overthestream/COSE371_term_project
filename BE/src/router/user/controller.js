@@ -8,9 +8,8 @@ const registerUser = async (req, res) => {
       val: [userId, userPw],
     };
 
-    const queryResult = await queryGenerator(query.str, query.val);
+    await queryGenerator(query.str, query.val);
     res.status(200);
-    res.json(queryResult);
   } catch (err) {
     console.log(err);
     res.send(err);
@@ -30,6 +29,24 @@ const loginUser = async (req, res) => {
       if (queryResult[0].user_pw === userPw) res.send('success');
       else res.send('uncorrect');
     } else res.send('none');
+    res.status(200);
+  } catch (err) {
+    console.log(err);
+    res.send(err);
+    res.status(500);
+  }
+};
+
+const findUsers = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const query = {
+      str: `SELECT user_id FROM user_table WHERE user_id LIKE '%${id}%'`,
+      val: [],
+    };
+    const queryResult = await queryGenerator(query.str, query.val);
+    res.json(queryResult);
+    res.send(200);
   } catch (err) {
     console.log(err);
     res.send(err);
@@ -40,4 +57,5 @@ const loginUser = async (req, res) => {
 module.exports = {
   registerUser,
   loginUser,
+  findUsers,
 };

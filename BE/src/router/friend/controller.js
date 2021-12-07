@@ -35,7 +35,8 @@ const getIadd = async (req, res) => {
   try {
     const { id } = req.params;
     const query = {
-      str: `SELECT add_to FROM friend AS S WHERE add_from = $1 AND NOT EXISTS (SELECT add_from FROM friend WHERE add_to = $1 AND add_from = S.add_to) `,
+      str: `SELECT add_to FROM friend AS S WHERE add_from = $1 AND NOT EXISTS
+       (SELECT add_from FROM friend WHERE add_to = $1 AND add_from = S.add_to) `,
       val: [id],
     };
     const queryResult = await queryGenerator(query.str, query.val);
@@ -51,7 +52,8 @@ const getAddMe = async (req, res) => {
   try {
     const { id } = req.params;
     const query = {
-      str: `SELECT add_from FROM friend AS S WHERE add_to = $1 AND NOT EXISTS (SELECT add_to FROM friend WHERE add_from = $1 AND add_to = S.add_from) `,
+      str: `SELECT add_from FROM friend AS S WHERE add_to = $1 
+      AND NOT EXISTS (SELECT add_to FROM friend WHERE add_from = $1 AND add_to = S.add_from) `,
       val: [id],
     };
     const queryResult = await queryGenerator(query.str, query.val);
@@ -67,7 +69,8 @@ const getAddBoth = async (req, res) => {
   try {
     const { id } = req.params;
     const query = {
-      str: `SELECT add_from FROM friend AS S WHERE add_to = $1 AND EXISTS (SELECT add_to FROM friend WHERE add_from = $1 AND add_to = S.add_from) `,
+      str: `SELECT add_from FROM friend AS S WHERE add_to = $1 
+      AND EXISTS (SELECT add_to FROM friend WHERE add_from = $1 AND add_to = S.add_from) `,
       val: [id],
     };
     const queryResult = await queryGenerator(query.str, query.val);

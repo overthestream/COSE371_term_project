@@ -10,7 +10,6 @@ CREATE TABLE user_table (
   user_id varchar(10) not null,
   user_pw varchar(20),
 
-  check (user_pw LIKE '____'),
   primary key (user_id)
 );
 

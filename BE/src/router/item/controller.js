@@ -38,7 +38,9 @@ const getCount = async (req, res) => {
   try {
     const { id } = req.params;
     const query = {
-      str: 'SELECT count(item.item_id) FROM list, own_item, item WHERE list.list_id = own_item.list_id AND own_item.item_id = item.item_id AND list.list_id = $1',
+      str: `SELECT count(item.item_id) FROM list, own_item, item 
+        WHERE list.list_id = own_item.list_id
+        AND own_item.item_id = item.item_id AND list.list_id = $1`,
       val: [id],
     };
     const queryResult = await queryGenerator(query.str, query.val);

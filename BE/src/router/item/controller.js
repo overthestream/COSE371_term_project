@@ -34,6 +34,22 @@ const addReq = async (req, res) => {
   }
 };
 
+const getReq = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const query = {
+      str: `SELECT * from own_item, item, prereq WHERE own_item.list_id = $1 AND own_item.item_id = item.item_id AND prereq_id = item.item_id`,
+      val: [id],
+    };
+    const result = await queryGenerator(query.str, query.val);
+    res.json(result);
+    res.status(200);
+  } catch (err) {
+    console.log(err);
+    res.sendStatus(500);
+  }
+};
+
 const getCount = async (req, res) => {
   try {
     const { id } = req.params;
@@ -56,7 +72,7 @@ const getItem = async (req, res) => {
   try {
     const { id } = req.params;
     const query = {
-      str: `SELECT * FROM list natural join own_item natural join item WHERE list_id = $1 ORDER BY due_date ASC`,
+      str: `SELECT * FROM list natural join own_item natural join item WHERE list_id = $1 ORDER BY is_done ASC, is_important DESC, due_date ASC`,
       val: [id],
     };
     const queryResult = await queryGenerator(query.str, query.val);
@@ -98,7 +114,7 @@ const addItem = async (req, res) => {
 
 const deleteItem = async (req, res) => {
   try {
-    const { id } = req.body;
+    const { id } = req.params;
     const query = {
       str: `DELETE FROM item WHERE item_id = $1`,
       val: [id],
@@ -191,6 +207,7 @@ const putDue = async (req, res) => {
 };
 
 module.exports = {
+  getReq,
   addReq,
   getCount,
   getItem,

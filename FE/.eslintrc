@@ -55,6 +55,8 @@
       }
     ],
     "no-shadow": "off",
+    "no-console": "off",
+    "camelcase": "off",
     "@typescript-eslint/no-shadow": [
       "error"
     ],
@@ -79,7 +81,10 @@
         "import/no-unresolved": "off",
         "@typescript-eslint/camelcase": "off",
         "@typescript-eslint/explicit-function-return-type": "off",
-        "@func-names": "off"
+        "@func-names": "off",
+        "no-alert": "off",
+        "no-console": "off",
+        "camelcase": "off"
       }
     }
   ]

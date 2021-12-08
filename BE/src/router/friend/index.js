@@ -4,7 +4,7 @@ const controllers = require('./controller');
 const router = express.Router();
 
 router.post('/add', controllers.addFriend);
-router.delete('/delete', controllers.deleteFriend);
+router.delete('/delete/:addFrom/:addTo', controllers.deleteFriend);
 router.get('/iadd/:id', controllers.getIadd);
 router.get('/addme/:id', controllers.getAddMe);
 router.get('/addboth/:id', controllers.getAddBoth);

@@ -8,7 +8,9 @@
     "plugin:prettier/recommended"
   ],
   "plugins": [],
-  "rules": {},
+  "rules": {
+    "no-console": "off"
+  },
   "settings": {
     "import/resolver": {
       "node": {

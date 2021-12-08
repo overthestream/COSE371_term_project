@@ -18,7 +18,7 @@ const addFriend = async (req, res) => {
 
 const deleteFriend = async (req, res) => {
   try {
-    const { addFrom, addTo } = req.body;
+    const { addFrom, addTo } = req.params;
     const query = {
       str: `DELETE FROM friend WHERE add_from = $1 AND add_to = $2`,
       val: [addFrom, addTo],

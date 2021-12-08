@@ -16,6 +16,22 @@ const getList = async (req, res) => {
   }
 };
 
+const getListName = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const query = {
+      str: `SELECT list_name FROM list WHERE list_id = $1`,
+      val: [id],
+    };
+    const queryResult = await queryGenerator(query.str, query.val);
+    res.json(queryResult);
+    res.status(200);
+  } catch (err) {
+    console.log(err);
+    res.sendStatus(500);
+  }
+};
+
 const addList = async (req, res) => {
   try {
     const { listName, userId } = req.body;
@@ -61,7 +77,7 @@ const putList = async (req, res) => {
 
 const deleteList = async (req, res) => {
   try {
-    const { id } = req.body;
+    const { id } = req.params;
     const query = {
       str: `DELETE FROM list WHERE list_id = $1`,
       val: [id],
@@ -77,6 +93,7 @@ const deleteList = async (req, res) => {
 
 module.exports = {
   getList,
+  getListName,
   addList,
   putList,
   deleteList,

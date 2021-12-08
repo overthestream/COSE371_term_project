@@ -35,14 +35,16 @@ const TitleButton = styled.button``;
 
 const ToDoPage: React.FC = () => {
   const temp = useParams().list_id;
+
   const listId = temp ? parseInt(temp, 10) : undefined;
   const [listName, setListName] = useState<string>('');
+  const listTitle = listName;
   const getListName = async () => {
     const response = await axios.get(
       `http://localhost:3001/list/name/${listId}`
     );
     const list = await response.data;
-    setListName(list[0].list_name);
+    await setListName(list[0].list_name);
   };
   useEffect(() => {
     getListName();
@@ -82,7 +84,7 @@ const ToDoPage: React.FC = () => {
         id: listId,
         newName: title,
       });
-      // refresh listname
+      window.location.href = `http://localhost:3000/todo/${listId}`;
     } catch (err) {
       console.log(err);
     }
@@ -90,7 +92,7 @@ const ToDoPage: React.FC = () => {
 
   return (
     <Container>
-      목록명 : {listName}
+      목록명 : {listTitle}
       <TitleModifier>
         제목 수정: <TitleInput onChange={onTitleChange} />
         <TitleButton onClick={onTitleSubmit}>confirm</TitleButton>

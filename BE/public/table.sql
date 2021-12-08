@@ -1,10 +1,11 @@
-DROP TABLE user_table;
-DROP TABLE friend;
 DROP TABLE own_list;
-DROP TABLE list;
-DROP TABLE item;
 DROP TABLE own_item;
 DROP TABLE prereq;
+DROP TABLE friend;
+DROP TABLE user_table;
+DROP TABLE list;
+DROP TABLE item;
+
 
 CREATE TABLE user_table (
   user_id varchar(10) not null,
